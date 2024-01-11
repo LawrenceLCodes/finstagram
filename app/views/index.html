@@ -3,35 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../stylesheets/normalize.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,700italic,700,300">
+    <link rel="stylesheet" href="../../../stylesheets/lib.css">
     <title>Finstagram</title>
 </head>
 <!-- Content goes in body -->
 <body>
     <header>
-        <p>Lawrence Lee</p>
-        <p>Front End Web Developer</p>
+        <h1>Finstagram</h1>
     </header>
+    <main role="main">
+        <!-- Each Finstagram post should include the following -->
+        <!-- Primary tag that will contain all necessary content of each post -->
+        <article class="finstagram-post">
+            <!-- Post image, usename and time when posted -->
+            <div class="user-info">
+                <img src="https://live.staticflickr.com/65535/52358606250_01c667c5da_w.jpg" alt="sharky_j">
+                <h2>sharky_j</h2>
+                <h3>15 minutes ago</h3>
+            </div>
+            <!-- Clickable Image -->
+            <a class="photo" href="#">
+                <img src="https://live.staticflickr.com/65535/52358421508_786aa10e2c_c.jpg" alt="post from sharky_j">
+            </a>
+            <!-- likes & comments counters-->
+            <div class="actions">
+                0 likes
+                <span class="comment-count">0 comments</span>
+            </div>
+            <!-- comment text or paragraphs -->
+            <ul class="comments">
+                <li>
+                    <p>
+                        sharky_j: Out for the long weekend... too embarrassed to show y'all the beach bod!
+                    </p>
+                </li>
+            </ul>
+        </article>
+    </main>
 
-    <nav>
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    </nav>
-    <section>
-        <h2>About Me</h2>
-        <p></p>
-    </section>
     
-    <section>
-        <h2>Projects</h2>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-    </section>
-    <footer><p>info about me here...</p></footer>
-
-    <img src="/public/images/2005_lexus_es-330_sedan_base_fq_oem_1_500.avif" alt="Lexus ES330 car">
 </body>
 </html>
