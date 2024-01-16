@@ -1,0 +1,38 @@
+body {
+    background-color: #f5f5f5;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    background-color: #244751;
+    color: #E8FDFF;
+}
+
+main {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.finstagram-post {
+    margin-bottom: 48px;
+
+    .user-info img {
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.7s cubic-bezier(.47,.73,.53,1.46);
+
+        &:hover {
+            transform: scale(1.08);
+            filter: drop-shadow(9px 9px 1px rgba(0, 0, 0, 0.086));
+        }
+    }
+}
+
+a.photo {
+    cursor: pointer;
+    transition: 0.7s cubic-bezier(.47,.73,.53,1.46);
+}
+
+a.photo:hover {
+    padding: 10px;
+}
