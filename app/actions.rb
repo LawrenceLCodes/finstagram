@@ -30,7 +30,7 @@ get '/' do
     like_count: 0,
     comment_count: 1,
     comments: [{
-      usernam: "sharky_j",
+      username: "sharky_j",
       text: "Out for the long weekend... too embarrassed to show y'all the beach bod!"
     }]
   }
@@ -65,6 +65,8 @@ get '/' do
   # finstagram_post.to_s
   # to_s is used to convert the array below into a string
   [@finstagram_post_shark, @finstagram_post_whale, @finstagram_post_marlin].to_s
+
+  @finstagram_posts = [@finstagram_post_shark, @finstagram_post_marlin, @finstagram_post_whale]
   
   erb(:index)
 end
