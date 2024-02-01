@@ -110,10 +110,73 @@ end
 end
 
 # FizzBuzz using Ruby
-for n in (1..100)
-    if n % 3 == 0
-        puts 'Fizz'
-    else 
-        puts n
-    end 
+# for n in (1..100)
+#     if n % 3 == 0
+#         puts 'Fizz'
+#     else 
+#         puts n
+#     end 
+# end
+
+# Yellow Pager code
+# Needs more work, instructor left the rest of the code to me to work on
+# def yellow_pager(string)
+#     phone_number = ""
+#     string.downcase.each_char do |letter|
+#         # if character in string is "a" append 2
+#         if letter == "a" || letter == "b" || letter == "c"
+#             phone_number += "2"
+#         elsif letter == "d" || letter == "e" || letter == "f"
+#             phone_number += "3"
+#         else
+#             phone_number += letter
+#         end
+#     end
+#     puts phone_number
+# end
+
+# yellow_pager("Lawrence")
+
+# Class - can store methods, properties that can be used and inherited
+class Human 
+    def walk
+        puts "I can walk!"
+    end
+
+    def talk
+        puts "I can talk as well!"
+    end
 end
+
+class Robot
+    def fly
+        puts "I can fly!"
+    end
+end
+
+# This is an example of inheriting
+# The SuperHuman class is inheriting all of the properties from the Human class
+class SuperHuman < Human
+    def super_walk
+        puts "I can walk at 60mph!"
+    end
+end
+
+class MegaHuman < SuperHuman
+
+end
+
+larry = Human.new
+larry.walk
+larry.talk
+
+legion = Robot.new
+legion.fly
+
+Jo = SuperHuman.new
+Jo.super_walk
+Jo.walk
+
+Shepard = MegaHuman.new
+Shepard.walk
+Shepard.super_walk

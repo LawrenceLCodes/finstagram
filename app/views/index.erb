@@ -10,25 +10,25 @@
         <article class="finstagram-post">
             <!-- Post image, usename and time when posted -->
             <div class="user-info">
-                <img src="<%= finstagram_post[:avatar_url] %>" alt="<%= finstagram_post[:username] %>">
-                <h2><%= finstagram_post[:username] %></h2>
-                <h3><%= finstagram_post[:humanized_time_elapsed] %></h3>
+                <img src="<%= finstagram_post.user.avatar_url %>" alt="<%= finstagram_post.user.username %>">
+                <h2><%= finstagram_post.user.username %></h2>
+                <h3><%= finstagram_post.humanized_time_elapsed %></h3>
             </div>
             <!-- Clickable Image -->
             <a class="photo" href="#">
-                <img src="<%= finstagram_post[:photo_url] %>" alt="finstagram post from <%= finstagram_post[:username] %>">
+                <img src="<%= finstagram_post.photo_url %>" alt="finstagram post from <%= finstagram_post.user.username %>">
             </a>
             <!-- likes & comments counters-->
             <div class="actions">
-                <%= finstagram_post[:like_count] %> likes
-                <span class="comment-count"><%= finstagram_post[:comment_count] %> comment</span>
+                <%= finstagram_post.like_count %> likes
+                <span class="comment-count"><%= finstagram_post.comment_count %> comments</span>
             </div>
             <!-- comment text or paragraphs -->
             <ul class="comments">
-              <% finstagram_post[:comments].each do |comment| %>
+              <% finstagram_post.comments.each do |comment| %>
                 <li>
                     <p>
-                        <%= comment[:username] %>: <%= comment[:text] %>
+                        <%= comment.user.username %>: <%= comment.text %>
                     </p>
                 </li>
               <% end %>
