@@ -2,13 +2,35 @@
     <h1>Sign Up</h1>
 </header>
 <main>
-    <form method="post">
-        <label for="username">Username</label>
-        <input type="text" placeholder="Create your username" name="username">
-        <label for="avatar">Avatar</label>
-        <input type="text" placeholder="Enter your avatar url" name="avatar">
+    <ul class="errors">
+        <% @new_user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
 
-        # <input type="password" placeholder="Create your password" name="password">
-        <button type="submit">Create New User</button>
+    <form method="POST" action="/signup">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" placeholder="Enter your email" name="email" id="email" value="<%= @new_user.email %>">
+        </div>
+
+        <div class="form-group">
+            <label for="avatar_url">Avatar URL</label>
+            <input type="text" placeholder="Enter your avatar url" name="avatar_url" id="avatar_url" value="<%= @new_user.avatar_url %>">
+        </div>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" placeholder="Create your username" name="username" id="username" value="<%= @new_user.username %>">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" placeholder="Create your password" name="password" id="password">
+        </div>
+
+        <div class="form-group">
+            <button class="button" type="submit">Signup</button>
+        </div>
     </form>
 </main>
