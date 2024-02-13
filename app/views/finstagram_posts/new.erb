@@ -1,0 +1,22 @@
+<header>
+    <h1>New Post</h1>
+</header>
+<main>
+    <ul class="errors">
+        <% @finstagram_post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+
+    
+    <form method="POST" action="/finstagram_posts">
+        <div class="form-group">
+            <label for="photo_url">Photo URL</label>
+            <input type="text" placeholder="Submit your photo link" name="photo_url" id="photo_url">
+        </div>
+
+        <div class="form-group">
+            <button class="button" type="submit">Post</button>
+        </div>
+    </form>
+</main>

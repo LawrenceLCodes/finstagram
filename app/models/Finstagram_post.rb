@@ -9,9 +9,9 @@ class FinstagramPost < ActiveRecord::Base
     # Each finstagram post can have many likes which will be coming from many users
     has_many :likes
 
-    # Validates if a user record is present
-    # If no user is present then a post cannot be created
-    validates_presence_of :user
+    # Validates if a user record is present with a photo.
+    # If no user associated with user id or photo_url is present then a new finstagram post cannot be created
+    validates :photo_url, :user, presence: true
 
     # Time elapsed on finstagram posts function
     def humanized_time_elapsed

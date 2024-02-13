@@ -1,11 +1,9 @@
 <header>
-    <h1>USERS</h1>
+    <h1>User</h1>
 </header>
 <main>
-    <% @users.each do |user| %>
         <div class="user-box">
-            <h2><%= user.username %></h2>
             <img class="user-avatar" src="<%= user.avatar_url %>" alt="avatar">
         </div>
-    <% end %>
 </main>
+<%= erb[:"shared/footer", {locals:[name: "Larry", pagename: "Users"]}] %>

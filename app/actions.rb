@@ -3,7 +3,7 @@
 # used for accessing @current_user on every .erb file or any page of this web application
 helpers do
   def current_user
-    User.find_by(session[:user_id])
+    User.find_by(id: session[:user_id])
   end
 end
 
@@ -57,6 +57,7 @@ post '/login' do # when we submit a form with an action for /login
     session[:user_id] = user.id
     redirect to('/')
   else
+    # Display login has failed error message and return to login page
     @error_message = "Login has failed."
     erb(:login)
   end
@@ -66,6 +67,61 @@ end
 get '/logout' do
   # modifies session hash to remove :user_id data and sets it to nil or nothing
   # redirects user to index or homepage
-  session[:user_id] = nil 
+  session[:user_id] = nil
   redirect to('/')
 end
+
+# --- Users ---
+get '/users' do
+  @users = User.all
+  erb(:users)
+end
+
+get '/users/:id' do
+  id = params[:id]
+  @user = User.find(id)
+  erb(:user)
+end
+
+# --- New Posts ---
+get '/finstagram_posts/new' do
+  @finstagram_post = FinstagramPost.new
+  erb(:"finstagram_posts/new")
+end
+
+post '/finstagram_posts' do
+  photo_url = params[:photo_url]
+
+  # instantiate new Finstagram Post
+  # Using the current session hash, tie this new post to the currently logged in user's id
+  @finstagram_post = FinstagramPost.new({ photo_url: photo_url, user_id: current_user.id })
+
+  # if post validates, save it to records
+  if @finstagram_post.save
+    redirect to('/')
+  else
+    # if post does NOT validate, print error messages to user
+    erb(:"finstagram_posts/new")
+  end
+end
+
+# --- For Individual Posts ---
+# :id used for individual posts and will be used to look up the post within the database
+get '/finstagram_posts/:id' do 
+  params[:id]
+end
+
+get '/test/:name/:lastname/:age' do
+  "Hello" + params[:name] + params[:lastname] + params[:age]
+end
+
+# before '/users' do # before we visit the users page, we want to do something
+#   # We want to check if the user is logged in based on the session
+#   # who is the user
+#   name=session[:name]
+
+#   if name != 'Larry'
+#     redirect to('/')
+#     halt(403, "You should be an admin!")
+#   end
+# end
