@@ -105,10 +105,11 @@ post '/finstagram_posts' do
   end
 end
 
-# --- For Individual Posts ---
+# --- Individual Posts ---
 # :id used for individual posts and will be used to look up the post within the database
-get '/finstagram_posts/:id' do 
-  params[:id]
+get '/finstagram_posts/:id' do
+  @finstagram_post = FinstagramPost.find(params[:id])   # finds the finstagram post with the ID from the URL 
+  erb(:"finstagram_posts/show")   # renders the app/views/finstagram_posts/show.erb page
 end
 
 get '/test/:name/:lastname/:age' do

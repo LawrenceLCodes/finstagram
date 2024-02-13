@@ -1,0 +1,4 @@
+# Individual Finstagram Posts
+# only one post will be displayed
+# Using partials, main HTML is from shared/finstagram_post.erb
+<%= erb(:'shared/finstagram_post', { locals: { finstagram_post: @finstagram_post }}) %>
